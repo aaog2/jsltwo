@@ -1,0 +1,33 @@
+//UI
+const body = document.body;
+const slides = document.querySelectorAll('.slide');
+const leftbtn = document.getElementById('left'),
+    rightbtn = document.getElementById('right');
+
+let activeslice = 0;
+
+function setbgbody(){
+    body.style.backgroundImage = slides[activeslice].style.backgroundImage;
+
+}
+
+setbgbody();
+
+rightbtn.addEventListener('click',()=>{
+    // console.log('i am right');
+    activeslice ++;
+
+    if(activeslice > slides.length-1){
+        activeslice = 0;
+    }
+});
+
+leftbtn.addEventListener('click',()=>{
+    // console.log('i am left');
+
+    activeslice--;
+
+    if(activeslice < 0){
+        activeslice = slides.length -1;
+    }
+})
